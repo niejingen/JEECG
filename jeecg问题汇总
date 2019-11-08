@@ -1,0 +1,24 @@
+(1)使用代码生成器后记得修改spring扫描配置路径entity,dao,control
+http://www.jeecg.org/forum.php?mod=viewthread&tid=1832&extra=
+
+(2)entity配置注意配置上一层
+				正确：<value>com.jeecg.*</value>
+				错误：<!--  <value>com.jeecg.entity.*</value>-->
+
+(3)列表字段过多情况下，实现左右拖动效果，参数设置
+        修改列表<t:datagrid ，设置参数， fitColumns="false"
+		
+(4)代码生成的jsp文件位置
+/jeecg/src/main/webapp/webpage/com/jeecg/bsbudetails/bsBuDetailsList.jsp
+
+(5)jeecg_config.properties中可以配置生成的package
+/jeecg/src/main/resources/jeecg/jeecg_config.properties
+
+(6)去掉首页聊天功能
+/jeecg/src/main/webapp/webpage/main/hplus_main.jsp
+注释：<!-- 在线聊天 -->
+<%@include file="/context/layui.jsp"%>
+
+(7)dgcol标签 Column(列) 子标签
+frozenColumn	boolean	是否冰冻列	默认否	FALSE
+<t:dgCol title="用户名" sortable="false" field="userName" query="true" frozenColumn="true"></t:dgCol>
