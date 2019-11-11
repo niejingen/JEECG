@@ -22,3 +22,50 @@ http://www.jeecg.org/forum.php?mod=viewthread&tid=1832&extra=
 (7)dgcol标签 Column(列) 子标签
 frozenColumn	boolean	是否冰冻列	默认否	FALSE
 <t:dgCol title="用户名" sortable="false" field="userName" query="true" frozenColumn="true"></t:dgCol>
+（8）JS增强实现POPUP的多赋值
+
+http://www.jeecg.org/forum.php?mod=viewthread&tid=4364&fromuid=14695
+
+（9）js增强实现查看每行数据
+
+function view(){
+var rowData = $('#tms_gl_voucherList').datagrid('getSelected');
+if (!rowData) {
+tip('请选择一条信息');
+return;
+}	
+var id = rowData.id;
+createdetailwindow('查看','cgFormBuildController/ftlForm/tms_gl_voucher/goDetail.do?olstylecode=&load=detail&id='+id ,1000,700);
+
+}
+
+（10）列表新加操作按钮
+
+jsp文件中：
+<t:dgDefOpt title="查看" url="tmsVoucherController.do?goUpdate&id={id}" urlclass="ace_button" ></t:dgDefOpt>
+
+（11）列表页面缺失下面的滚动条
+
+对应jsp页面设置：<t:datagrid 标签
+fitColumns="false"
+
+（12）错误异常: CgReportNotFoundException
+
+org.jeecgframework.core.online.exception.CgReportNotFoundException: 动态报表配置不存在! at
+
+查看对应jsp页面中input的
+onclick="popupClick(this,'kjqj','kjqj')" 
+onclick="popupClick(this,'kjqj','kjqj','kjqj')"
+
+（12）主子表卡片页面分录缺失滚动条
+
+ 
+
+src/main/java/org/jeecgframework/tag/core/easyui/TabsTag.java
+
+去掉style中：
+overflow-x:auto;overflow-y:auto;
+
+（13）卡片页面字段设置不可编辑
+
+input 设置 disabled
